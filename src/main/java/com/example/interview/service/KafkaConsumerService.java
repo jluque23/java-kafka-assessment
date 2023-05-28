@@ -28,15 +28,16 @@ public class KafkaConsumerService {
         ObjectMapper mapper = new ObjectMapper();
         Scan scan;
         try {
+            
             JsonNode node = mapper.readTree(record.value());
 
             scan = new Scan();
-            scan.setProductId(node.get("product_id").asText());
+            scan.setProductId(node.get("productId").asText());
             scan.setTimestamp(LocalDateTime.parse(node.get("timestamp").asText(), DateTimeFormatter.ISO_DATE_TIME));
             scan.setType(node.get("type").asText());
-            scan.setRobotId(node.get("robot_id").asText());
+            scan.setRobotId(node.get("robotId").asText());
             scan.setBarcode(node.get("barcode").asText());
-            scan.setShelfLocation(node.get("shelf_location").asText());
+            scan.setShelfLocation(node.get("shelfLocation").asText());
 
             scanRepository.save(scan);
         } catch (JsonMappingException e) {

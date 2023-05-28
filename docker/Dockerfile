@@ -2,9 +2,9 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY . .
 
-RUN npm ci
+RUN yarn install
 
 COPY .. .
 

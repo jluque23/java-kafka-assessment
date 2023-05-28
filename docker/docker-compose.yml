@@ -38,7 +38,7 @@ services:
     networks:
       - interview-network
   appjs:
-    build: ..
+    build: .
     volumes:
       - .:/app
     depends_on:

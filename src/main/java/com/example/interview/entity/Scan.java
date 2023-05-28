@@ -21,6 +21,9 @@ public class Scan {
     private String barcode;
     private String shelfLocation;
 
+    public Scan() {
+    }
+
     // Getters and setters
     public Long getId() {
         return id;
